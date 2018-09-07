@@ -1,20 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div (resized)="onResized($event)" class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+  <!-- Desktop-Toolbar   -->
+  <mat-toolbar color="primary" class="example-toolbar" *ngIf="!mobileQuery.matches">
+        <mat-toolbar-row >
+        <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
+        Open Scool Ecosystems
+        &nbsp;<span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 01</span>
+        &nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 02</span>
+      </mat-toolbar-row>
+  </mat-toolbar>
+<!-- Mobile-Toolbar   -->
+  <mat-toolbar color="primary" class="example-toolbar" *ngIf="mobileQuery.matches">
+        <mat-toolbar-row >
+        <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
+        Open Scool Ecosystems
+        </mat-toolbar-row>
+        <mat-toolbar-row >
+        &nbsp;<span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 01</span>
+        &nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 02</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container" >
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
+      [opened]="mobileQuery.matches ? 'false' : 'true'" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
+                  <app-my-sidenav-content-left></app-my-sidenav-content-left>
+    </mat-sidenav>
+    <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 120 : 0">
+        <span *ngIf="!mobileQuery.matches">Test1</span>
+      <!-- Icon zum öffnen und schliessen des linken sidenav panels -->
+      <!-- Mit Click Beispiel zum Auffrufen eines eigenen Services -->
+      <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened"><mat-icon>swap_horiz</mat-icon></div>
+      <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened"><mat-icon>swap_horiz</mat-icon></div>
+      <!-- Hier könnte direkt sidenav content eingegeben werden  -->
+      <!-- sidenav-responsive-example works! -->
+      <!-- Variable, vom angeclickten Tab abhängiger Content -> die Komponenten mit dem HTML Content Template noch erstellen -->
+      <app-my-sidenav-content></app-my-sidenav-content>
+    </mat-sidenav-content>
+    <mat-sidenav #snav2 [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
+      [opened]="mobileQuery.matches ? 'false' : 'true'"  position="end" [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
+      <!-- Textstrukturierungsbeispiel mit click-Event-Data-Binding -->
+      <!-- <p (click)="snav.toggle(); snav2.toggle()">sidenav-responsive-example works!</p> -->
+      sidenav-responsive-example works!
+    </mat-sidenav>
+  </mat-sidenav-container>
+ </div>
