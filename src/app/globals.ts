@@ -4,5 +4,3 @@ import { Injectable } from '@angular/core';
 export class Globals {
   selectedTab: any = 'Tab01';
 }
-
-// git hub check
