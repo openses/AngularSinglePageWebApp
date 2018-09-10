@@ -1,11 +1,9 @@
-import { Component, ChangeDetectorRef, /* ViewChild, HostListener,  */OnDestroy } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import {MySidenavControlService} from './my-sidenav-control.service';
 import {MediaMatcher} from '@angular/cdk/layout';
-// import {MySidenavContentLeftComponent} from './sidenav/my-sidenav-content-left/my-sidenav-content-left.component';
 import {Globals} from './globals';
 // Hinweise zur nächsten Zeile: https://www.npmjs.com/package/angular-resize-event
 import { ResizedEvent } from 'angular-resize-event/resized-event';
-
 
 @Component({
   selector: 'app-root',
@@ -18,11 +16,9 @@ export class AppComponent implements OnDestroy {
   msg: any;
   mobileQuery: MediaQueryList;
   public selectedTab: any;
-  // Hinweise zu @ViewChild und @HostListener: http://embed.plnkr.co/1XhUD6jQ4otDx12LsN5b/
-  /* divWidth       = 0;
-  @ViewChild('widgetParentDiv') parentDiv: ElementRef; */
   width: number;
   height: number;
+  FalseTrueCheck = false;
   private _mobileQueryListener: () => void;
   public myLog(msg: any) {console.log(msg); }
 
@@ -32,13 +28,6 @@ export class AppComponent implements OnDestroy {
     console.log(this.width);
     console.log(this.height);
   }
-
-  /* @HostListener('window:resize') onResize() {
-    // guard against resize before view is rendered
-    if (this.parentDiv) {
-      this.divWidth = this.parentDiv.nativeElement.clientWidth;
-    }
-  } */
 
 // tslint:disable-next-line:max-line-length
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public logger: MySidenavControlService, public globals: Globals) {
@@ -54,7 +43,6 @@ export class AppComponent implements OnDestroy {
     private changedTab() {
       this.globals.selectedTab = this.selectedTab;
     }
-
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

@@ -4,8 +4,12 @@
         <mat-toolbar-row >
         <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
         Open Scool Ecosystems
-        &nbsp;<span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 01</span>
-        &nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 02</span>
+        &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Übersicht</span>
+        &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Theorie</span>
+        &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab03'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Praxis</span>
+        <span class="example-fill-remaining-space"></span>
+        <span (click)="selectedTab='Tab04'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>people</mat-icon></span>
+        &nbsp;<span (click)="selectedTab='Tab05'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>public</mat-icon></span>
       </mat-toolbar-row>
   </mat-toolbar>
 <!-- Mobile-Toolbar   -->
@@ -13,35 +17,59 @@
         <mat-toolbar-row >
         <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
         Open Scool Ecosystems
+        <span class="example-fill-remaining-space"></span>
+        <span (click)="selectedTab='Tab04'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>people</mat-icon></span>
+        &nbsp;<span (click)="selectedTab='Tab05'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()"><mat-icon>public</mat-icon></span>
         </mat-toolbar-row>
         <mat-toolbar-row >
-        &nbsp;<span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 01</span>
-        &nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Tab 02</span>
+          <span (click)="selectedTab='Tab01'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Übersicht</span>
+          &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab02'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Theorie</span>
+          &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab03'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Praxis</span>
         </mat-toolbar-row>
     </mat-toolbar>
   <mat-sidenav-container class="example-sidenav-container" >
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
       [opened]="mobileQuery.matches ? 'false' : 'true'" [style.marginTop.px]="mobileQuery.matches ? 40 : 0">
-                  <app-my-sidenav-content-left></app-my-sidenav-content-left>
+                  <!-- die nächste Zeile dient als Besipiel für eine Klassenvariable -->
+                  <p *ngIf="FalseTrueCheck">false/true check</p>
+                  <br><br><br><br><br><br><br><br><br>
+                  <span *ngIf="globals.selectedTab == 'Tab01'">Selected Sidenav Tab01<br><br>
+                    <mat-expansion-panel [expanded]='false'>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            mySidenavContentLeftDataTitel01
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            mySidenavContentLeftDataBeschrieb01
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <div>mySidenavContentLeftDataEintrag01</div>
+                      <div>mySidenavContentLeftDataEintrag02</div>
+                      <mat-action-row></mat-action-row>
+                    </mat-expansion-panel>
+                  </span>
+                  <span *ngIf="globals.selectedTab == 'Tab02'">Selected Sidenav Tab02</span>
+                  <span *ngIf="globals.selectedTab == 'Tab03'">Selected Sidenav Tab03</span>
+<!-- Infos zu ng-template -> https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/ -->
+<!-- <ng-template>Unsichtbar</ng-template> -->
     </mat-sidenav>
     <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 120 : 0">
-        <span *ngIf="!mobileQuery.matches">Test1</span>
       <!-- Icon zum öffnen und schliessen des linken sidenav panels -->
       <!-- Mit Click Beispiel zum Auffrufen eines eigenen Services -->
       <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened"><mat-icon>swap_horiz</mat-icon></div>
       <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened"><mat-icon>swap_horiz</mat-icon></div>
-      <!-- Hier könnte direkt sidenav content eingegeben werden  -->
-      <!-- sidenav-responsive-example works! -->
       <!-- Variable, vom angeclickten Tab abhängiger Content -> die Komponenten mit dem HTML Content Template noch erstellen -->
-      <app-my-sidenav-content></app-my-sidenav-content>
+      <span *ngIf="globals.selectedTab == 'Tab01'">Selected Content Tab01 <br>Diese Seite ist im Aufbau.</span>
+      <span *ngIf="globals.selectedTab == 'Tab02'">Selected Content Tab02 <br>Diese Seite ist im Aufbau.</span>
+      <span *ngIf="globals.selectedTab == 'Tab03'">Selected Content Tab03 <br>Diese Seite ist im Aufbau.</span>
     </mat-sidenav-content>
-    <mat-sidenav #snav2 [mode]="mobileQuery.matches ? 'over' : 'side'"
+    <!-- <mat-sidenav #snav2 [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
       [opened]="mobileQuery.matches ? 'false' : 'true'"  position="end" [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
-      <!-- Textstrukturierungsbeispiel mit click-Event-Data-Binding -->
-      <!-- <p (click)="snav.toggle(); snav2.toggle()">sidenav-responsive-example works!</p> -->
+      Textstrukturierungsbeispiel mit click-Event-Data-Binding
+      <p (click)="snav.toggle(); snav2.toggle()">sidenav-responsive-example works!</p>
       sidenav-responsive-example works!
-    </mat-sidenav>
+    </mat-sidenav> -->
   </mat-sidenav-container>
  </div>
