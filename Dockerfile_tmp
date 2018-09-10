@@ -1,0 +1,16 @@
+# FROM node:8.10.0 as node-angular-cli-openses
+# FROM johnpapa/angular-cli:latest as node-angular-cli-openses
+FROM erdiko/angular as node-angular-cli-openses
+LABEL authors="Claude Jacob"
+ENV NODE_ENV production
+# Create a directory where our app will be placed
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
+#Angular CLI
+# RUN npm install -g @angular/cli
+# RUN npm install -g @angular-devkit/build-angular
+COPY . .
+EXPOSE 4200
+CMD npm start

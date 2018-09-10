@@ -1,0 +1,21 @@
+FROM node:latest as node-angular-cli-openses
+LABEL authors="Claude Jacob"
+ENV NODE_ENV production
+# Create a directory where our app will be placed
+RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
+WORKDIR /openses
+COPY ["angular.json", "package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+# RUN npm install --production --silent && mv node_modules ../
+#Angular CLI
+RUN npm install -g @angular/cli
+RUN cd /openses
+RUN npm install  @angular-devkit/build-angular
+RUN cd ..
+RUN npm install git-clone
+RUN git clone https://github.com/buerojacob/openses
+RUN npm install
+# COPY . .
+EXPOSE 4200
+# CMD npm start
+RUN ng serve
