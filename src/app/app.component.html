@@ -59,6 +59,9 @@
       <!-- Mit Click Beispiel zum Auffrufen eines eigenen Services -->
       <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened"><mat-icon>swap_horiz</mat-icon></div>
       <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened"><mat-icon>swap_horiz</mat-icon></div>
+      <iframe *ngIf="globals.selectedTab == 'Tab01'" src="http://buerojacob.ch/openses-content/openses_01_01.html" width="100%" height="100%" frameBorder="0"></iframe><br>
+      <iframe *ngIf="globals.selectedTab == 'Tab02'" src="http://buerojacob.ch/openses-content/openses_02_01.html" width="100%" height="100%" frameBorder="0"></iframe><br>
+      <iframe *ngIf="globals.selectedTab == 'Tab03'" src="http://buerojacob.ch/openses-content/openses_03_01.html" width="100%" height="100%" frameBorder="0"></iframe><br>
       <!-- Variable, vom angeclickten Tab abhängiger Content -> die Komponenten mit dem HTML Content Template noch erstellen -->
       <span *ngIf="globals.selectedTab == 'Tab01'">Selected Content Tab01 <br>Diese Seite ist im Aufbau.</span>
       <span *ngIf="globals.selectedTab == 'Tab02'">Selected Content Tab02 <br>Diese Seite ist im Aufbau.</span>
