@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Globals } from './globals';
 import { ActivatedRoute } from '@angular/router';
-// import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-app-routing',
@@ -19,7 +18,13 @@ export class AppRoutingComponent implements OnInit {
   }
 
   getParams(): void {
+    // die folgende Zeile basiert auf der Route { path: 'tabselect/:selectedTab', component: AppRoutingComponent }
     // this.route.snapshot.paramMap.get('selectedTab')
+    // und basiert auf der URL /tabselect/Tab01
+    // die folgende Zeile basiert auf der Route { path: 'tabselect', component: AppRoutingComponent },
+    // this.route.snapshot.queryParams['selectedTab']
+    // und basiert auf der URL zB.
+    // http://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_02_02.html
     if (this.route.snapshot.queryParams['selectedTab'] == null) {
       console.log('ohne ? Parameter');
       this.globals.selectedLanguage = 'de';
@@ -28,7 +33,6 @@ export class AppRoutingComponent implements OnInit {
       console.log(this.globals.selectedTab);
       this.globals.myhtmlfile = 'openses_01_00.html';
       console.log(this.globals.myhtmlfile);
-
     } else {
       console.log('mit ? Parameter');
       this.selectedLanguage = this.route.snapshot.queryParams['selectedLanguage'];
@@ -42,5 +46,4 @@ export class AppRoutingComponent implements OnInit {
       this.globals.myhtmlfile = this.myhtmlfile;
     }
    }
-
 }

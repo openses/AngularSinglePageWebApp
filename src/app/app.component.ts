@@ -5,13 +5,6 @@ import {Globals} from './globals';
 // Hinweise zur nächsten Zeile: https://www.npmjs.com/package/angular-resize-event
 import { ResizedEvent } from 'angular-resize-event/resized-event';
 import { DomSanitizer } from '@angular/platform-browser';
-// import { AppModule } from './app.module';
-// import { AppRoutingModule } from './app-routing.module';
-// import { RouterModule, Routes, ActivatedRoute } from '@angular/router';
-
-/* const routes: Routes = [
-  { path: '/tab/:tabID', component: this }
-] ;*/
 
 @Component({
   selector: 'app-root',
@@ -19,7 +12,6 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
   providers: [MySidenavControlService]
 })
-
 
 export class AppComponent implements OnInit, OnDestroy {
   title = 'openses';
@@ -35,11 +27,8 @@ export class AppComponent implements OnInit, OnDestroy {
   width: number;
   height: number;
   FalseTrueCheck = false;
-  // private urltest: AppModule ;
   private _mobileQueryListener: () => void;
   public myLog(msg: any) {console.log(msg); }
-
-
 
   onResized(event: ResizedEvent): void {
     this.width = event.newWidth;
@@ -72,16 +61,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-      console.log('Hallo ngOnInit app.components');
-      // this.urltest.urlParameter = '1';
-      // this.urltest.getID();
-      console.log('this.globals.urlParameter ');
-      console.log('this.globals.urlParameter ' + this.globals.urlParameter);
-      // console.log(this.urltest.urlParameter);
-      // this.urltest.urlParameter === this.urltest.getID();
-      // RouterModule.forRoot([]);
-      // console.log(this.route.snapshot.paramMap.get('id'));
-      // console.log(this.route.snapshot.params.tabID);
      }
 
   ngOnDestroy(): void {
@@ -89,5 +68,4 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   selectSidenavContentLeft(CheckTab: any) {this.selectedTab = CheckTab; }
-
 }
