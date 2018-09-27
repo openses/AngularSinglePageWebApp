@@ -7,4 +7,5 @@ export class Globals {
   selectedCommunity: any = 'app';
   myhtmlpath: any = 'http://buerojacob.ch/openses-content/';
   myhtmlfile: any = 'openses_01_00.html';
+  urlParameter: any = 1;
 }

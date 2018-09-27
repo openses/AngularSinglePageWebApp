@@ -5,7 +5,7 @@
         <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
         <span>
         Open Scool Ecosystems
-      </span>
+      </span><app-app-routing></app-app-routing>
         <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab01'; myhtmlfile ='openses_01_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Übersicht</span> -->
         &nbsp;&nbsp;&nbsp;
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
