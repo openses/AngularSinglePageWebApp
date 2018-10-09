@@ -49,7 +49,7 @@ Password: <input type="password" name="pwd">
             $(document).ready(function(){
               $.trumbowyg.svgPath = 'https://openses.org/openses-content/icons/icons.svg';
              $('#js--trumbowyg').trumbowyg({
-              btns: [['viewHTML']],
+              // btns: [['viewHTML']],
               autogrow: true
              });
              $('#js--trumbowyg').trumbowyg('enable');
