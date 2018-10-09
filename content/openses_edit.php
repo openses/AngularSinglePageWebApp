@@ -47,7 +47,7 @@ Password: <input type="password" name="pwd">
   <!-- <script src="https://openses.org/openses-content/prism.js"></script> -->
         <script>
             $(document).ready(function(){
-              $.trumbowyg.svgPath = 'https://openses.org/openses-content/ui/icons.svg';
+              $.trumbowyg.svgPath = 'https://openses.org/openses-content/icons/icons.svg';
              $('#js--trumbowyg').trumbowyg({
               btns: [['viewHTML']],
               autogrow: true
