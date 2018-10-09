@@ -1,31 +1,25 @@
 <div (resized)="onResized($event)" class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
   <!-- Desktop-Toolbar   -->
-  <mat-toolbar color="primary" class="example-toolbar" *ngIf="!mobileQuery.matches">
-        <mat-toolbar-row >
-        <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
+  <mat-toolbar color="primary"  class="example-toolbar" *ngIf="!mobileQuery.matches">
+        <mat-toolbar-row background-color="#A9A9A9">
         <span>
-        Open Scool Ecosystems
+        <img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
       </span><app-app-routing></app-app-routing>
-        <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab01'; myhtmlfile ='openses_01_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Übersicht</span> -->
         &nbsp;&nbsp;&nbsp;
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Overview</button>
-        <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Theorie</span> -->
         &nbsp;&nbsp;&nbsp;
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_00.html'; changedTab()" >Theorie</button>
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_00.html'; changedTab()" >Theory</button>
-        <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Praxis</span> -->
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab02'; myID ='2'; changedTab()" >Theorie</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab02'; myID ='2'; changedTab()" >Theory</button>
         &nbsp;&nbsp;&nbsp;
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_00.html'; changedTab()" >Praxis</button>
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_00.html'; changedTab()" >Practice</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Praxis</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Practice</button>
         <span class="example-fill-remaining-space"></span>
-        <!-- <span (click)="selectedTab='Tab04'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>people</mat-icon></span> -->
         <button mat-icon-button [matMenuTriggerFor]="languagemenu"><mat-icon>public</mat-icon></button>
           <mat-menu #languagemenu="matMenu">
               <button mat-menu-item (click)="selectedLanguage='de'; changedTab()">Deutsch</button>
               <button mat-menu-item (click)="selectedLanguage='en'; changedTab()">English</button>
           </mat-menu>
-        <!-- &nbsp;<span (click)="selectedTab='Tab05'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>public</mat-icon></span> -->
         &nbsp;
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
@@ -37,13 +31,9 @@
 <!-- Mobile-Toolbar   -->
   <mat-toolbar color="primary" class="example-toolbar" *ngIf="mobileQuery.matches">
         <mat-toolbar-row >
-        <!-- <span (click)="snav.toggle(); snav2.toggle()" ><button mat-icon-button><mat-icon>menu</mat-icon></button></span> -->
-        Open Scool Ecosystems
+        <!-- Open Scool Ecosystems -->
+        <img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
         <span class="example-fill-remaining-space"></span>
-        <!-- <span (click)="selectedTab='Tab04'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>people</mat-icon></span>
-        &nbsp;<span (click)="selectedTab='Tab05'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()"><mat-icon>public</mat-icon></span>
-         -->
-       <!-- <span (click)="selectedTab='Tab04'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>people</mat-icon></span> -->
        <span (click)="selectedTab='Tab04'; changedTab()">
           <button mat-icon-button [matMenuTriggerFor]="languagemenu"><mat-icon>public</mat-icon></button>
           <mat-menu #languagemenu="matMenu">
@@ -51,7 +41,6 @@
               <button mat-menu-item (click)="selectedLanguage='en'; changedTab()">English</button>
           </mat-menu>
         </span>
-        <!-- &nbsp;<span (click)="selectedTab='Tab05'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" ><mat-icon>public</mat-icon></span> -->
         &nbsp;
         <span (click)="selectedTab='Tab05'; changedTab()" >
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
@@ -62,67 +51,295 @@
         </span>
       </mat-toolbar-row>
         <mat-toolbar-row >
-          <!-- <span (click)="selectedTab='Tab01'; myhtmlfile ='openses_01_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Übersicht</span>
-          &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Theorie</span>
-          &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Praxis</span>
-         -->
-         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Overview</button>
-        <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Theorie</span> -->
         &nbsp;&nbsp;&nbsp;
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_00.html'; changedTab()" >Theorie</button>
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab02'; myhtmlfile ='openses_02_00.html'; changedTab()" >Theory</button>
-        <!-- &nbsp;&nbsp;&nbsp;<span (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_01.html'; logger.MySidenavControlServiceLog(selectedTab); myLog(selectedTab); myLog(snav.opened); myLog(snav.toggle); changedTab()" >Praxis</span> -->
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab02'; myID ='2'; changedTab()" >Theorie</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab02'; myID ='2'; changedTab()" >Theory</button>
         &nbsp;&nbsp;&nbsp;
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_00.html'; changedTab()" >Praxis</button>
-        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab03'; myhtmlfile ='openses_03_00.html'; changedTab()" >Practice</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Praxis</button>
+        <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Practice</button>
         </mat-toolbar-row>
     </mat-toolbar>
   <mat-sidenav-container class="example-sidenav-container" >
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
       [opened]="mobileQuery.matches ? 'false' : 'true' && globals.selectedTab !== 'Tab01'"  [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
-      <!-- die nächste Zeile dient als Besipiel für eine Klassenvariable -->
-      <!-- <p *ngIf="FalseTrueCheck">false/true check</p> -->
       <span *ngIf="globals.selectedLanguage == 'de'">
           <!-- Die nächste Zeile steht nur der Form wegen -> Sidenav Tab01 (Home) wird durch Tab01-Click-Event immer geschlossen -->
           <span *ngIf="globals.selectedTab == 'Tab01'">Selected Sidenav Tab01<br><br></span>
           <span *ngIf="globals.selectedTab == 'Tab02'">
-               <mat-expansion-panel [expanded]='false'>
-                    <mat-expansion-panel-header>
-                      <!-- Es werden keine mat-panel Beschreibungen (mat-panel-description) verwendet -> Tag bleibt leer -->
-                        <mat-panel-title>mySidenavContentLeftDataTitel01</mat-panel-title><mat-panel-description></mat-panel-description>
-                    </mat-expansion-panel-header>
-                          <button mat-button (click)="myhtmlfile ='openses_02_01.html'; changedTab()">mySidenavContentLeftDataEintrag01</button><br>
-                          <button mat-button (click)="myhtmlfile ='openses_02_02.html'; changedTab()">mySidenavContentLeftDataEintrag02</button>
-                    </mat-expansion-panel>
+
+            <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myID ='T1'; changedTab()">
+              T1 Digitale &Ouml;kosysteme
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myID ='T1.1'; changedTab()">
+              T1.1 Schul IT Umgebung
+              </button><br>
+              <button mat-button (click)="myID ='T1.2'; changedTab()">
+              T1.2 Pers&ouml;nliche IT Umgebung
+              </button><br>
+              <button mat-button (click)="myID ='T1.3'; changedTab()">
+                T1.3 Big Data und KI
+                </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myID ='T2'; changedTab()">
+              T2 Identit&auml;tsmanagement
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myID ='T2.1'; changedTab()">
+              T2.1 Anforderungen/Ziele
+              </button><br>
+              <button mat-button (click)="myID ='T2.2'; changedTab()">
+              T2.2 Protokolle/Plattformen
+              </button><br>
+              <button mat-button (click)="myID ='T2.3'; changedTab()">
+              T2.3 Verzeichnisdienste
+              </button><br>
+              <button mat-button (click)="myID ='T2.4'; changedTab()">
+              T2.4 Projekt FIDES
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myID ='T3'; changedTab()">
+              T3 Lernmanagement
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myID ='T3.1'; changedTab()">
+              T3.1 Lernplattformen
+              </button><br>
+              <button mat-button (click)="myID ='T3.2'; changedTab()">
+              T3.2 Pers&ouml;nliche Lernumgebung
+              </button><br>
+              <button mat-button (click)="myID ='T3.3'; changedTab()">
+              T3.3 ePortfolios
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_T_04_00.html'; changedTab()">
+              T4 Ressourcenmanagement
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_T_04_01.html'; changedTab()">
+              T4.1 Personen
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_04_02.html'; changedTab()">
+              T4.2 Infrastruktur
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_T_05_00.html'; changedTab()">
+              T5 Datenmanagement
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_01.html'; changedTab()">
+              T5.1 Standards
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_05_02.html'; changedTab()">
+              T5.2 eCH
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_05_03.html'; changedTab()">
+              T5.3 SBBK
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_05_04.html'; changedTab()">
+              T5.4 CEDS
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_00.html'; changedTab()">
+              T6 Microservices
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_01.html'; changedTab()">
+              T6.1 MVC Architektur
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_02.html'; changedTab()">
+              T6.2 Autonom
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_03.html'; changedTab()">
+              T6.3 Agil
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_T_06_04.html'; changedTab()">
+              T6.4 Fallstudie Uber
+              </button><br>
+              </mat-expansion-panel>
+
           </span>
-          <span *ngIf="globals.selectedTab == 'Tab03'">Selected Sidenav Tab03</span>
+          <span *ngIf="globals.selectedTab == 'Tab03'">
+
+            <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_01_00.html'; changedTab()">
+              P1 Programmiersprachen
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_01_01.html'; changedTab()">
+              P1.1 JavaScript
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_01_02.html'; changedTab()">
+              P1.2 TypeScript
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_01_03.html'; changedTab()">
+              P1.3 Python
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_00.html'; changedTab()">
+              P2 Programmiertools
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_01.html'; changedTab()">
+              P2.1 Visual Studio Code
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_02.html'; changedTab()">
+              P2.2 CodePen
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_03.html'; changedTab()">
+              P2.3 Stackblitz
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_04.html'; changedTab()">
+              P2.4 Git
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_02_05.html'; changedTab()">
+              P2.5 Docker
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_00.html'; changedTab()">
+              P3 MEAN Stack
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_01.html'; changedTab()">
+              P3.1 node.js / npm
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_02.html'; changedTab()">
+              P3.2 express.js
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_03.html'; changedTab()">
+              P3.3 passport.js
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_04.html'; changedTab()">
+              P3.4 MongoDB
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_05.html'; changedTab()">
+              P3.5 mongoose.js
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_06.html'; changedTab()">
+              P3.6 Angular CLI
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_07.html'; changedTab()">
+              P3.7 Angular  Material
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_08.html'; changedTab()">
+              P3.8 Handsontable CE
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_03_08.html'; changedTab()">
+              P3.9 NativeScript
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_00.html'; changedTab()">
+              P4 LAMP Stack
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_01.html'; changedTab()">
+              P4.1 jQuery
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_02.html'; changedTab()">
+              P4.2 PHP
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_03.html'; changedTab()">
+              P4.3 MySQL
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_05_00.html'; changedTab()">
+              P5 APIs/Webservices
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_05_01.html'; changedTab()">
+              P5.1 Moodle
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_05_02.html'; changedTab()">
+              P5.2 mahara
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_05_03.html'; changedTab()">
+              P5.3 openses.org
+              </button><br>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]='false'>
+              <mat-expansion-panel-header>
+              <mat-panel-title>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_00.html'; changedTab()">
+              P6 Hosting
+              </button><br>
+              </mat-panel-title><mat-panel-description></mat-panel-description>
+              </ mat-expansion-panel-header>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_01.html'; changedTab()">
+              P6.1 Azure
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_02.html'; changedTab()">
+              P6.2 Amazon Web Services
+              </button><br>
+              <button mat-button (click)="myhtmlfile ='openses_P_04_03.html'; changedTab()">
+              P6.3 On Premises
+              </button><br>
+              </mat-expansion-panel>
+
+
+          </span>
       </span>
       <span *ngIf="globals.selectedLanguage == 'en'">
           <span *ngIf="globals.selectedTab == 'Tab01'">Selected Sidenav Tab01 under construction</span>
           <span *ngIf="globals.selectedTab == 'Tab02'">Selected Sidenav Tab02 under construction</span>
           <span *ngIf="globals.selectedTab == 'Tab03'">Selected Sidenav Tab03 under construction</span>
       </span>
-      <!-- Infos zu ng-template -> https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/ -->
-      <!-- <ng-template>Unsichtbar</ng-template> -->
     </mat-sidenav>
-    <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 120 : 0">
+    <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 110 : 0">
       <!-- Icon zum öffnen und schliessen des linken sidenav panels -->
       <!-- Mit logger.MySidenavControlServiceLog-Beispielservice-Aufruf und myLog('Test Ausdruck 04')-Instanz-Aufruf  -->
       <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened && globals.selectedTab !== 'Tab01'"><mat-icon >menu</mat-icon></div>
       <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened && globals.selectedTab !== 'Tab01'"><mat-icon >chevron_left</mat-icon></div>
-      <!-- <iframe *ngIf="globals.selectedTab == 'Tab01'" src="http://buerojacob.ch/openses-content/openses_01_01.html" width="100%" height="100%" frameBorder="0"></iframe><br> -->
-      <!-- <iframe *ngIf="globals.selectedTab == 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl(myhtmlpath + myhtmlfile)' width="100%" height="100%" frameBorder="0"></iframe><br> -->
-      <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(globals.myhtmlpath + globals.selectedLanguage + "/" + globals.myhtmlfile)' width="100%" height="100%" frameBorder="0"></iframe><br>
-      <!-- <iframe *ngIf="globals.selectedTab == 'Tab02'" src="http://buerojacob.ch/openses-content/openses_02_01.html" width="100%" height="100%" frameBorder="0"></iframe><br> -->
-      <!-- <iframe *ngIf="globals.selectedTab == 'Tab03'" src="http://buerojacob.ch/openses-content/openses_03_01.html" width="100%" height="100%" frameBorder="0"></iframe><br> -->
-      <!-- Variable, vom angeclickten Tab abhängiger Content -> die Komponenten mit dem HTML Content Template noch erstellen -->
-      <span *ngIf="globals.selectedTab == 'Tab01'">Selected Content Tab01 <br>Diese Seite ist im Aufbau.</span>
-      <span *ngIf="globals.selectedTab == 'Tab02'">Selected Content Tab02 <br>Diese Seite ist im Aufbau.</span>
-      <span *ngIf="globals.selectedTab == 'Tab03'">Selected Content Tab03 <br>Diese Seite ist im Aufbau.</span>
-      <span *ngIf="globals.selectedLanguage == 'de'">Selected Language Deutsch <br>Diese Seite ist im Aufbau.</span>
-      <span *ngIf="globals.selectedLanguage == 'en'">Selected Language English <br>Diese Seite ist im Aufbau.</span>
+      <p style="text-align:center" >
+        <iframe *ngIf="globals.selectedTab == 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl(globals.myhtmlpath + globals.selectedLanguage + "/" + globals.myhtmlfile)' [width]="mobileQuery.matches ? 1 * width : 1 * width_max" [height]="mobileQuery.matches ? height - 220 : height - 100" frameBorder="0"></iframe>
+        <!-- <iframe *ngIf="globals.selectedTab !== 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl(globals.myhtmlpath + globals.selectedLanguage + "/" + globals.myhtmlfile)' [width]="mobileQuery.matches ? width : width_max" [height]="mobileQuery.matches ? height - 140 : height - 40" frameBorder="0"></iframe> -->
+        <iframe *ngIf="globals.selectedTab !== 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl("https://openses.org/openses-content/openses.php?id=" + globals.myID + "_" + globals.selectedLanguage)' [width]="mobileQuery.matches ? width : width_max" [height]="mobileQuery.matches ? height - 140 : height - 40" frameBorder="0"></iframe>
+      </p>
     </mat-sidenav-content>
     <!-- <mat-sidenav #snav2 [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
@@ -132,4 +349,9 @@
       sidenav-responsive-example works!
     </mat-sidenav> -->
   </mat-sidenav-container>
+  <div *ngIf="globals.selectedTab == 'Tab01'" style = "background-color: #546E7A; color: #ffffff; font: .7em/120% roboto; text-align:center">
+    Code licensed under an MIT-style License<br>
+    Documentation licensed under CC BY 4.0.<br>
+    <a target= "_blank" href="http://buerojacob.ch/kontakt.html" rel="noopener" style = "color: #ffffff; ">Impressum/Contact</a> / Last Update {{ jstoday }}<br>
+   </div>
  </div>

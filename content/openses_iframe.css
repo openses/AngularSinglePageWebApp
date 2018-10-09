@@ -1,0 +1,111 @@
+img {
+  background: white;
+  border: 0px solid black;
+  width: 100%;
+  height: auto;
+}
+
+h3 {font: 1.2em/.5 roboto;}
+
+h1 {color:#546E7A ;}
+
+p {font: 1.1em/110% roboto;}
+
+.ce {
+  position: relative;
+  max-width: 38rem;
+  margin: 1rem 0 4rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+}
+.ce_caption {
+  position: absolute;
+  z-index: 1;
+  top: 1.2rem;
+  left: 1.2rem;
+}
+.ce_pre {
+  overflow: hidden;
+  resize: horizontal;
+  min-width: 100%;
+  border: 1px solid #fff;
+  background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg stroke-width='2' stroke='%23EDF3ED' width='1224' height='64' viewBox='0 0 1224 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0L1224,0'/%3E%3Cpath d='M0,4l1224,0'/%3E%3Cpath d='M0,8l1224,0'/%3E%3Cpath d='M0,12l1224,0'/%3E%3Cpath d='M0,16l1224,0'/%3E%3Cpath d='M0,20l1224,0'/%3E%3Cpath d='M0,24l1224,0'/%3E%3Cpath d='M0,28l1224,0'/%3E%3C/svg%3E") 0 3rem / auto 4rem;
+}
+
+.ce_pre > [class*=language-] {
+  display: block;
+  overflow-x: scroll;
+  padding: 1rem 1rem 1rem;
+  background-color: darkblue;
+	color: yellow;
+  line-height: 1;
+  border: 0 solid #fff;
+  border-width: 0 0 0 1rem;
+  border-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgNDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjE5IiBjeT0iNDkiIHI9IjE0IiBzdHlsZT0iZmlsbDojZmRmZGZkO3N0cm9rZS13aWR0aDoyO3N0cm9rZTojZGRkIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSI1MSIgcj0iMTQiIHN0eWxlPSJmaWxsOiNGQUZBRkQ7c3Ryb2tlLXdpZHRoOjAiLz48cGF0aCBkPSJNNDAsMGwwLDEwMCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2Utd2lkdGg6MjtzdHJva2UtZGFzaGFycmF5OjIsNiwyLDY7c3Ryb2tlOnJnYmEoMTg0LDIxNywxODQsLjcpIj48L3BhdGg+PC9zdmc+Cg==) 0 0 0 400 repeat;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='1200' height='256' viewBox='0 0 1200 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.3,.1'%3E%3C/feTurbulence%3E%3C/filter%3E%3C/defs%3E%3Crect height='256' width='1200' filter='url(%23noise)' opacity='.05'/%3E%3C/svg%3E");
+}
+
+/* Optionally remove the grunge background on focus */
+
+.ce_pre > [class*=language-]:focus {
+  background-image: none;
+}
+
+[class*=language-] {
+  font-family: monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 1px #fff;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://openses.org/openses-content/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://openses.org/openses-content/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://openses.org/openses-content/fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(https://openses.org/openses-content/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+

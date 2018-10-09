@@ -24,7 +24,7 @@ export class AppRoutingComponent implements OnInit {
     // die folgende Zeile basiert auf der Route { path: 'tabselect', component: AppRoutingComponent },
     // this.route.snapshot.queryParams['selectedTab']
     // und basiert auf der URL zB.
-    // http://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_02_02.html
+    // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_T_01_00.html
     if (this.route.snapshot.queryParams['selectedTab'] == null) {
       console.log('ohne ? Parameter');
       this.globals.selectedLanguage = 'de';

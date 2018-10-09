@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="Claude Jacob / buerojacob.ch GmbH" />
+  <meta content="Open School Ecosystems, digitalschoolecosystem.org, schul-ökosystem.ch, edusuisseid.ch, jsonsis.ch, schoolinformationsystem.ch, suisseeduid.ch" />
+  <!-- <link rel="stylesheet" href="https://openses.org/openses-content/trumbowyg.min.css"> -->
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+  <link href="https://openses.org/openses-content/trumbowyg.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://openses.org/openses-content/openses_iframe.css" media="screen" />
+
+
+  <title>Übersicht Open School Ecosystems / openses.org</title>
+</head>
+<html>
+   <body>
+   	<main>
+        <h1>T 1 Digitale &Ouml;kosysteme</h1>
+
+        <p align="left" style ="background-color: #B00020; color: #FFFFFF;"><i class="material-icons">build</i>&nbsp;<i class="material-icons">build</i>&nbsp;<i class="material-icons">build</i>&nbsp;This content is still under construction, please visit us later!</p>
+
+
+<textarea id="js--trumbowyg" width="95%" >
+
+        <div style="border:1px solid Black;">
+          <pre width="95%" align="left" style ="background-color: #546E7A; color: #FFFFFF;">
+          <code id="bar" contenteditable spellcheck="false" class="language-css" align="left" >
+http://localhost:4200/
+          </code>
+          </pre>
+          <p align="center">
+          <button class="btn" data-clipboard-action="copy" data-clipboard-target="#bar" >
+          Copy to clipboard
+          </button>
+          </p>
+       </div>
+</textarea>
+    <main>
+        <input id="clickMe" type="button" value="Save Textarea" onclick="saveTextArea();">
+
+        <script src="https://openses.org/openses-content/jquery-3.3.1.js"></script>
+        <script src="https://openses.org/openses-content/trumbowyg.min.js"></script>
+        <script src="https://openses.org/openses-content/clipboard.js"></script>
+        <script src="https://openses.org/openses-content/openses.js"></script>
+  <!-- <script src="https://openses.org/openses-content/prism.js"></script> -->
+        <script>
+          // document.getElementById("clickMe").onclick = doFunction;
+          var code = '<div class="my-class"> \
+        <h1>The Header</h1> \
+        <p>The paragraph of text</p> \
+        <div class="my-quote"> \
+            <p>The quote I\'d like to put in a div</p> \
+        </div> \
+    </div>';
+            $(document).ready(function(){
+              $.trumbowyg.svgPath = 'https://openses.org/openses-content/ui/icons.svg';
+             $('#js--trumbowyg').trumbowyg({
+              btns: [['viewHTML']],
+              autogrow: true
+             });
+             $('#js--trumbowyg').trumbowyg('enable');
+            });
+            function saveTextArea(){
+              alert(document.getElementById("js--trumbowyg").value);
+              alert(code);
+              document.getElementById("js--trumbowyg").value = code;
+              alert(document.getElementById("js--trumbowyg").value);
+            };
+
+          </script>
+    </body>
+</html>
