@@ -11,6 +11,7 @@ export class AppRoutingComponent implements OnInit {
   selectedLanguage: string;
   selectedTab: string;
   myhtmlfile: string;
+  myID: string;
   constructor(public globals: Globals, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -24,7 +25,10 @@ export class AppRoutingComponent implements OnInit {
     // die folgende Zeile basiert auf der Route { path: 'tabselect', component: AppRoutingComponent },
     // this.route.snapshot.queryParams['selectedTab']
     // und basiert auf der URL zB.
-    // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_T_01_00.html
+    // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_01_00.html
+    // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_01_00.html&myID=T1
+    // https://stackoverflow.com/questions/44819308/how-to-route-in-angular-4
+    // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab03&myID=P2.1
     if (this.route.snapshot.queryParams['selectedTab'] == null) {
       console.log('ohne ? Parameter');
       this.globals.selectedLanguage = 'de';
@@ -37,13 +41,16 @@ export class AppRoutingComponent implements OnInit {
       console.log('mit ? Parameter');
       this.selectedLanguage = this.route.snapshot.queryParams['selectedLanguage'];
       this.selectedTab = this.route.snapshot.queryParams['selectedTab'];
-      this.myhtmlfile = this.route.snapshot.queryParams['myhtmlfile'];
+      // this.myhtmlfile = this.route.snapshot.queryParams['myhtmlfile'];
+      this.myID = this.route.snapshot.queryParams['myID'];
       console.log('?selectedLanguage = ' + this.selectedLanguage);
       console.log('?selectedTab = ' + this.selectedTab);
-      console.log('?myhtmlfile = ' + this.myhtmlfile);
+      // console.log('?myhtmlfile = ' + this.myhtmlfile);
+      console.log('?myID = ' + this.myID);
       this.globals.selectedLanguage = this.selectedLanguage;
       this.globals.selectedTab = this.selectedTab;
-      this.globals.myhtmlfile = this.myhtmlfile;
+      // this.globals.myhtmlfile = this.myhtmlfile;
+      this.globals.myID = this.myID;
     }
    }
 }
