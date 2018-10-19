@@ -1,0 +1,11 @@
+RewriteEngine On
+# If an existing asset or directory is requested go to it as it is
+# https://stackoverflow.com/questions/29259428/angular-html5mode-redirecting-to-document-root
+# RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+# RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+# https://httpd.apache.org/docs/trunk/mod/mod_rewrite.html
+RewriteCond %{REQUEST_URI} !^/tabselect*
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
