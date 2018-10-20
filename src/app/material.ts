@@ -6,6 +6,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule ({
   imports: [
@@ -15,7 +18,10 @@ import {MatButtonModule} from '@angular/material/button';
       MatExpansionModule,
       MatTabsModule,
       MatMenuModule,
-      MatButtonModule
+      MatButtonModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule
   ],
   exports: [
       MatToolbarModule,
@@ -24,7 +30,10 @@ import {MatButtonModule} from '@angular/material/button';
       MatExpansionModule,
       MatTabsModule,
       MatMenuModule,
-      MatButtonModule
+      MatButtonModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpClientModule
   ],
 })
 

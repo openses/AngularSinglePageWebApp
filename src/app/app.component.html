@@ -4,7 +4,7 @@
         <mat-toolbar-row background-color="#A9A9A9">
         <span>
         <img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
-      </span><app-app-routing></app-app-routing>
+      </span>
         &nbsp;&nbsp;&nbsp;
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Overview</button>
@@ -23,6 +23,7 @@
         &nbsp;
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
+                <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
                 <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/openses">GitHub openses</a></button>
             </mat-menu>
       </mat-toolbar-row>
@@ -44,8 +45,8 @@
         <span (click)="selectedTab='Tab05'; changedTab()" >
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
-                <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/openses">github App</a></button>
-                <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/content">github Content</a></button>
+                <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
+                <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/openses">GitHub openses</a></button>
             </mat-menu>
         </span>
       </mat-toolbar-row>
@@ -462,6 +463,7 @@
       </span>
     </mat-sidenav>
     <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 110 : 0">
+        <app-app-routing></app-app-routing>
       <!-- Icon zum öffnen und schliessen des linken sidenav panels -->
       <!-- Mit logger.MySidenavControlServiceLog-Beispielservice-Aufruf und myLog('Test Ausdruck 04')-Instanz-Aufruf  -->
       <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened && globals.selectedTab !== 'Tab01'"><mat-icon >menu</mat-icon></div>

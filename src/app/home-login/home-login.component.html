@@ -1,0 +1,23 @@
+<div class="navbar navbar-default">
+    <div class="container">
+      <div id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/">Close Loginpage</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
+          <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ auth.getUserDetails()?.name }}</a></li>
+          <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="container">
+
+  <h1>openses.org Test Loginpage</h1>
+
+  <p align="center" style="background-color: #B00020; color: #FFFFFF;">This content is still under construction, please visit us later!</p>
+
+  <p>Won't you please <a routerLink="/login">sign in</a> or <a routerLink="/register">register</a>?</p>
+
+</div>
