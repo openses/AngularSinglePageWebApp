@@ -29,6 +29,7 @@ export class AppRoutingComponent implements OnInit {
     // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab02&myhtmlfile=openses_01_00.html&myID=T1
     // https://stackoverflow.com/questions/44819308/how-to-route-in-angular-4
     // https://localhost:4200/tabselect?selectedLanguage=de&selectedTab=Tab03&myID=P2.1
+    // https://openses.org/tabselect?selectedLanguage=de&selectedTab=Tab02&myID=T3.8
     if (this.route.snapshot.queryParams['selectedTab'] == null) {
       console.log('ohne ? Parameter');
       this.globals.selectedLanguage = 'de';
