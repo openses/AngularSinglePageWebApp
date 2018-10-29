@@ -6,17 +6,104 @@
   <meta content="Open School Ecosystems, digitalschoolecosystem.org, schul-ökosystem.ch, edusuisseid.ch, jsonsis.ch, schoolinformationsystem.ch, suisseeduid.ch" />
   <link rel="stylesheet" href="https://openses.org/openses-content/openses_iframe.css" media="screen" />
   <title>Übersicht Open School Ecosystems / openses.org</title>
+  <!-- <link rel="stylesheet" href="https://openses.org/openses-content/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- <script src="https://openses.org/openses-content/jquery-3.3.1.slim.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
 <html>
    <body>
    	<main>
         <p style="text-align:center">Identitätsbasierte Integration von <b>Digitalen Diensten</b> in
           <b><a target= "_blank" href="https://trendreport.de/wiki/digitales-oekosystem" rel="noopener">Schul Ökosysteme</a></b>.</p>
-        <img src="https://openses.org/openses-content/images/overview_scool_ecosystems_v4.png"  alt="Overview Open Scool Ecosystems / openses.org" />
-        <p style="text-align:center; font: 0.9em/100% roboto;">Anfragen zum Aufbau der openses-Community sind willkommen: <a href="mailto:info@openses.org?subject=Anfrage%20zum%20Aufbau%20der%20openses%20community&amp;body=Lieber%20Claude,%0A%0ADeine%20Mitteilung%20hier%0A%0ALiebe Grüsse,%0A%0AName:%0AEmail:%0ATelefon:%0A" style="text-align:center;">info@openses.org</a></p>
+
+            <div id="myCarousel" class="carousel slide">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" pause="hover" wrap="false">
+                <div class="item active">
+                  <!-- <img src="la.jpg" alt="Los Angeles" style="width:100%;"> -->
+                  <img src="https://openses.org/openses-content/images/overview_scool_ecosystems_v4.png"  alt="Overview Open Scool Ecosystems / openses.org" />
+                </div>
+
+                <div class="item">
+                  <!-- <img src="chicago.jpg" alt="Chicago" style="width:100%;"> -->
+                  <img src="https://openses.org/openses-content/images/architecture_scool_ecosystems_v1.png"  alt="Overview Open Scool Ecosystems / openses.org" />
+                </div>
+
+                <div class="item">
+                    <!-- <img src="chicago.jpg" alt="Chicago" style="width:100%;"> -->
+<div class="item">
+                  <!-- <img src="chicago.jpg" alt="Chicago" style="width:100%;"> -->
+                <p style="text-align:center">Das "openses.org Projekt" soll den Informationsaustausch, das Teilen von Programmiercode und das gemeinsame Entwickeln von open source
+                  Schulmanagement-Service-APIs für Schulen aller Grössen fördern und durch die Behörden
+                  bereitgestellte Schulmanagement Plattformen in agiler Weise für die spezifischen Bedürfnisse der einzelnen Schulen ergänzen. Dazu dienen die
+                  Website "openses.org" als Informationssammlung und das github Repostitory XXXXX als soziales Community-Entwickler-Netzwerk.<br>
+                  <br>
+                  Informationsbeiträge und github Pullrequests sind willkommen: <a href="mailto:info@openses.org?subject=Anfrage%20zum%20Aufbau%20der%20openses%20community&amp;body=Lieber%20Claude,%0A%0ADeine%20Mitteilung%20hier%0A%0ALiebe Grüsse,%0A%0AName:%0AEmail:%0ATelefon:%0A" style="text-align:center;">info@openses.org</a><br>
+                  <br>
+                  Projektinitiator ist die buerojacob.ch GmbH</p>
+                </div>
+                  </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
         <br>
         <br>
         <br>
     <main>
+        <script>
+            $(document).ready(function(){
+                // Activate Carousel
+                $("#myCarousel").carousel({interval: 10000, wrap: false});
+
+                // Enable Carousel Indicators
+                $(".item1").click(function(){
+                    $("#myCarousel").carousel(0);
+                    $("#myCarousel").carousel("pause");
+                });
+                $(".item2").click(function(){
+                    $("#myCarousel").carousel(1);
+                    $("#myCarousel").carousel("pause");
+                });
+                $(".item3").click(function(){
+                    $("#myCarousel").carousel(2);
+                    $("#myCarousel").carousel("pause");
+                });
+
+                // Enable Carousel Controls
+                $(".left").click(function(){
+                    $("#myCarousel").carousel("prev");
+                    $("#myCarousel").carousel("pause");
+                });
+                $(".right").click(function(){
+                    $("#myCarousel").carousel("next");
+                    $("#myCarousel").carousel("pause");
+                });
+            });
+            </script>
     </body>
 </html>
