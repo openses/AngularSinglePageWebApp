@@ -24,7 +24,7 @@
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
                 <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
-                <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/openses">GitHub openses</a></button>
+                <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button>
             </mat-menu>
       </mat-toolbar-row>
   </mat-toolbar>
@@ -46,7 +46,7 @@
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
                 <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
-                <button mat-menu-item><a target= "_blank" href="https://github.com/buerojacob/openses">GitHub openses</a></button>
+                <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button>
             </mat-menu>
         </span>
       </mat-toolbar-row>
@@ -193,7 +193,10 @@
               T5.8 Prozessmanagement
               </button><br>
               <button mat-button (click)="myID ='T5.9'; changedTab()">
-              T5.9 Echtzeit
+              T5.9 Modellierung
+              </button><br>
+              <button mat-button (click)="myID ='T5.10'; changedTab()">
+              T5.10 Echtzeit
               </button><br>
               </mat-expansion-panel>
               <mat-expansion-panel [expanded]='false'>
@@ -449,8 +452,11 @@
               P6.11 Office 365
               </button><br>
               <button mat-button (click)="myID ='P6.12'; changedTab()">
-              P6.12 openses.org
-              </button><br>
+               P6.12 Google Education Suite
+               </button><br>
+               <button mat-button (click)="myID ='P6.13'; changedTab()">
+               P6.13 openses.org
+               </button><br>
               </mat-expansion-panel>
               <mat-expansion-panel [expanded]='false'>
               <mat-expansion-panel-header>
