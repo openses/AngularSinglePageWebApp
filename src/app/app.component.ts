@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import {MySidenavControlService} from './my-sidenav-control.service';
-import {MediaMatcher} from '@angular/cdk/layout';
+import {MediaMatcher, BreakpointObserver, BreakpointState, Breakpoints} from '@angular/cdk/layout';
 import {Globals} from './globals';
 // Hinweise zur nächsten Zeile: https://www.npmjs.com/package/angular-resize-event
 import { ResizedEvent } from 'angular-resize-event/resized-event';
@@ -30,20 +30,12 @@ export class AppComponent implements OnInit, OnDestroy {
   width_max: number;
   height: number;
   FalseTrueCheck = false;
+  public stateVar: any;
   private _mobileQueryListener: () => void;
   public myLog(msg: any) {console.log(msg); }
 
-  onResized(event: ResizedEvent): void {
-    this.width = event.newWidth;
-    if (this.width >= 1024) {this.width_max = 1024; } else {this.width_max = this.width ; }
-    this.height = event.newHeight;
-    this.height =  this.height;
-    console.log(this.width);
-    console.log(this.height);
-  }
-
 // tslint:disable-next-line:max-line-length
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public logger: MySidenavControlService, public globals: Globals, public sanitizer: DomSanitizer /*, public routertest: AppRoutingModule , private route: ActivatedRoute */) {
+  constructor(public breakpointObserver: BreakpointObserver, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public logger: MySidenavControlService, public globals: Globals, public sanitizer: DomSanitizer /*, public routertest: AppRoutingModule , private route: ActivatedRoute */) {
     this.mobileQuery = media.matchMedia('(max-width: 620px)');
     this._mobileQueryListener = () => { changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener); };
@@ -58,6 +50,31 @@ export class AppComponent implements OnInit, OnDestroy {
     this.selectedCommunity = globals.selectedCommunity;
     }
 
+    onResized(event: ResizedEvent): void {
+      this.width = event.newWidth;
+      if (this.width >= 960) {this.width_max = 1024; } else {this.width_max = this.width ; }
+      this.height = event.newHeight;
+      this.height =  this.height;
+      console.log(this.width);
+      console.log(this.height);
+      this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          console.log(
+            'Matches small viewport or handset in portrait mode'
+          );
+        }
+      });
+      this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+      .subscribe((state: BreakpointState) => {
+        this.stateVar = JSON.stringify(state);
+        console.log(this.stateVar);
+      }
+      );
+    }
+
     private changedTab() {
       this.globals.selectedTab = this.selectedTab;
       this.globals.myhtmlpath = this.myhtmlpath;
@@ -69,6 +86,13 @@ export class AppComponent implements OnInit, OnDestroy {
       this.globals.selectedCommunity = this.selectedCommunity;
     }
 
+    private loadHomeLoginUrl() {
+      window.location.href = 'https://openses.org/homelogin';
+    }
+
+    private loadGitHubUrl() {
+      window.location.href = 'https://github.com/openses';
+    }
 
 
     ngOnInit() {

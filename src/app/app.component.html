@@ -3,7 +3,7 @@
   <mat-toolbar color="primary"  class="example-toolbar" *ngIf="!mobileQuery.matches">
         <mat-toolbar-row background-color="#A9A9A9">
         <span>
-        <img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
+        <!-- {{this.width}}/{{this.width_max}}/{{mobileQuery.matches}} --><img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
       </span>
         &nbsp;&nbsp;&nbsp;
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
@@ -15,16 +15,21 @@
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Praxis</button>
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab03'; myID ='3'; changedTab()" >Practice</button>
         <span class="example-fill-remaining-space"></span>
+<!-- language menu -->
         <button mat-icon-button [matMenuTriggerFor]="languagemenu"><mat-icon>public</mat-icon></button>
           <mat-menu #languagemenu="matMenu">
               <button mat-menu-item (click)="selectedLanguage='de'; changedTab()">Deutsch</button>
               <button mat-menu-item (click)="selectedLanguage='en'; changedTab()">English</button>
           </mat-menu>
         &nbsp;
+<!-- social menu -->
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
-                <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
-                <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button>
+                <!-- <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button> -->
+                <!-- <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button> -->
+                <button mat-menu-item (click)="loadHomeLoginUrl()">Loginpage</button>
+                <button mat-menu-item (click)="loadGitHubUrl()">GitHub openses</button>
+
             </mat-menu>
       </mat-toolbar-row>
   </mat-toolbar>
@@ -32,7 +37,7 @@
   <mat-toolbar color="primary" class="example-toolbar" *ngIf="mobileQuery.matches">
         <mat-toolbar-row >
         <!-- Open Scool Ecosystems -->
-        <img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
+        <!-- {{this.width}}/{{this.width_max}}/{{mobileQuery.matches}} --><img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
         <span class="example-fill-remaining-space"></span>
        <span (click)="selectedTab='Tab04'; changedTab()">
           <button mat-icon-button [matMenuTriggerFor]="languagemenu"><mat-icon>public</mat-icon></button>
@@ -45,12 +50,17 @@
         <span (click)="selectedTab='Tab05'; changedTab()" >
             <button mat-icon-button [matMenuTriggerFor]="communitymenu"><mat-icon>people</mat-icon></button>
             <mat-menu #communitymenu="matMenu">
-                <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button>
-                <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button>
+                <!-- <button mat-menu-item><a target= "_blank" href="./homelogin">Loginpage</a></button> -->
+                <!-- <button mat-menu-item><a target= "_blank" href="https://github.com/openses">GitHub openses</a></button> -->
+                <button mat-menu-item (click)="loadHomeLoginUrl()">Loginpage</button>
+                <button mat-menu-item (click)="loadGitHubUrl()">GitHub openses</button>
             </mat-menu>
         </span>
       </mat-toolbar-row>
         <mat-toolbar-row >
+            <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened && globals.selectedTab !== 'Tab01'" ><mat-icon >menu</mat-icon></div>
+            <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened && globals.selectedTab !== 'Tab01'" ><mat-icon >chevron_left</mat-icon></div>
+            &nbsp;&nbsp;&nbsp;
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'de'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Übersicht</button>
         <button mat-stroked-button *ngIf="globals.selectedLanguage == 'en'" (click)="selectedTab='Tab01'; snav.close(); myhtmlfile ='openses_01_00.html'; changedTab()" >Overview</button>
         &nbsp;&nbsp;&nbsp;
@@ -62,12 +72,15 @@
         </mat-toolbar-row>
     </mat-toolbar>
   <mat-sidenav-container class="example-sidenav-container" >
+<!-- left sidenav panel -->
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
       [opened]="mobileQuery.matches ? 'false' : 'true' && globals.selectedTab !== 'Tab01'"  [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
+<!-- de -->
       <span *ngIf="globals.selectedLanguage == 'de'">
           <!-- Die nächste Zeile steht nur der Form wegen -> Sidenav Tab01 (Home) wird durch Tab01-Click-Event immer geschlossen -->
           <span *ngIf="globals.selectedTab == 'Tab01'">Selected Sidenav Tab01<br><br></span>
+<!-- Tab 02 Theorie -->
           <span *ngIf="globals.selectedTab == 'Tab02'">
 
             <mat-expansion-panel [expanded]='false'>
@@ -258,6 +271,7 @@
               </mat-expansion-panel>
 
           </span>
+ <!-- Tab 03 Praxis -->
           <span *ngIf="globals.selectedTab == 'Tab03'">
 
             <mat-expansion-panel [expanded]='false'>
@@ -491,24 +505,30 @@
 
           </span>
       </span>
+<!-- en -->
       <span *ngIf="globals.selectedLanguage == 'en'">
           <span *ngIf="globals.selectedTab == 'Tab01'">Selected Sidenav Tab01 under construction</span>
+<!-- Tab 02 Theory          -->
           <span *ngIf="globals.selectedTab == 'Tab02'">Selected Sidenav Tab02 under construction</span>
+<!-- Tab 02 Practice          -->
           <span *ngIf="globals.selectedTab == 'Tab03'">Selected Sidenav Tab03 under construction</span>
       </span>
     </mat-sidenav>
+<!-- sidenav content hauptfenster -->
     <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 110 : 0">
         <app-app-routing></app-app-routing>
       <!-- Icon zum öffnen und schliessen des linken sidenav panels -->
       <!-- Mit logger.MySidenavControlServiceLog-Beispielservice-Aufruf und myLog('Test Ausdruck 04')-Instanz-Aufruf  -->
-      <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!snav.opened && globals.selectedTab !== 'Tab01'"><mat-icon >menu</mat-icon></div>
-      <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="snav.opened && globals.selectedTab !== 'Tab01'"><mat-icon >chevron_left</mat-icon></div>
+      <div (click)="snav.open(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 04'); myLog(snav.opened)" *ngIf="!mobileQuery.matches && !snav.opened && globals.selectedTab !== 'Tab01'" [style.marginTop.px]="mobileQuery.matches ? 110 : 0"><mat-icon >menu</mat-icon></div>
+      <div (click)="snav.close(); logger.MySidenavControlServiceLog(msg); myLog('Test Ausdruck 05'); myLog(snav.opened)" *ngIf="!mobileQuery.matches && snav.opened && globals.selectedTab !== 'Tab01'" [style.marginTop.px]="mobileQuery.matches ? 110 : 0"><mat-icon >chevron_left</mat-icon></div>
+ <!-- iframe      -->
       <p style="text-align:center" >
         <iframe *ngIf="globals.selectedTab == 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl(globals.myhtmlpath + globals.selectedLanguage + "/" + globals.myhtmlfile)' [width]="mobileQuery.matches ? 1 * width : 1 * width_max" [height]="mobileQuery.matches ? height - 220 : height - 100" frameBorder="0"></iframe>
         <!-- <iframe *ngIf="globals.selectedTab !== 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl(globals.myhtmlpath + globals.selectedLanguage + "/" + globals.myhtmlfile)' [width]="mobileQuery.matches ? width : width_max" [height]="mobileQuery.matches ? height - 140 : height - 40" frameBorder="0"></iframe> -->
         <iframe *ngIf="globals.selectedTab !== 'Tab01'" [src]='sanitizer.bypassSecurityTrustResourceUrl("https://openses.org/openses-content/openses.php?id=" + globals.myID + "_" + globals.selectedLanguage)' [width]="mobileQuery.matches ? width : width_max" [height]="mobileQuery.matches ? height - 140 : height - 40" frameBorder="0"></iframe>
       </p>
     </mat-sidenav-content>
+ <!-- right sidenav panel -->
     <!-- <mat-sidenav #snav2 [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="40"
       [opened]="mobileQuery.matches ? 'false' : 'true'"  position="end" [style.marginTop.px]="mobileQuery.matches ? 80 : 0">
@@ -517,6 +537,7 @@
       sidenav-responsive-example works!
     </mat-sidenav> -->
   </mat-sidenav-container>
+<!-- footer -->
   <div *ngIf="globals.selectedTab == 'Tab01'" style = "background-color: #546E7A; color: #ffffff; font: .7em/120% roboto; text-align:center">
     Code licensed under an MIT-style License<br>
     Documentation licensed under CC BY 4.0.<br>
