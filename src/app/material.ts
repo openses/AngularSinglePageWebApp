@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+import { CookieLawModule } from 'angular2-cookie-law';
 
 
 @NgModule ({
@@ -23,7 +24,8 @@ import { LayoutModule } from '@angular/cdk/layout';
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
-      LayoutModule
+      LayoutModule,
+      CookieLawModule
   ],
   exports: [
       MatToolbarModule,
@@ -36,7 +38,8 @@ import { LayoutModule } from '@angular/cdk/layout';
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
-      LayoutModule
+      LayoutModule,
+      CookieLawModule
   ],
 })
 

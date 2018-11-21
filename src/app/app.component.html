@@ -1,7 +1,11 @@
 <div (resized)="onResized($event)" class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+    <!-- https://npm.taobao.org/package/angular2-cookie-law -->
+  <cookie-law position="bottom" name="ng4topCookieLaw" expiration="365">Mit der Nutzung dieser Website stimmst du unserer
+    <a target="_blank" href="https://buerojacob.ch/datenschutzerklaerung.html">Datenschutzerklärung</a> zu. <br>
+    By using this website, you agree to our <a target="_blank" href="https://buerojacob.ch/datenschutzerklaerung.html">privacy policy</a>.</cookie-law>
   <!-- Desktop-Toolbar   -->
   <mat-toolbar color="primary"  class="example-toolbar" *ngIf="!mobileQuery.matches">
-        <mat-toolbar-row background-color="#A9A9A9">
+      <mat-toolbar-row background-color="#A9A9A9">
         <span>
         <!-- {{this.width}}/{{this.width_max}}/{{mobileQuery.matches}} --><img src="https://openses.org/openses-content/images/toolbar-image.png" alt="Open Scool Ecosystems / openses.org" />
       </span>
@@ -316,7 +320,7 @@
               P2.4 Git/GitHub
               </button><br>
               <button mat-button (click)="myID ='P2.5'; changedTab()">
-              P2.5 Docker
+              P2.5 Docker/Kubernetes
               </button><br>
               </mat-expansion-panel>
               <mat-expansion-panel [expanded]='false'>
@@ -337,49 +341,55 @@
               P3.3 passport.js
               </button><br>
               <button mat-button (click)="myID ='P3.4'; changedTab()">
-              P3.4 oidc-provider
+              P3.4 OAuth2 npm
               </button><br>
               <button mat-button (click)="myID ='P3.5'; changedTab()">
-              P3.5 MongoDB
+              P3.5 oidc/node-jose npm
               </button><br>
               <button mat-button (click)="myID ='P3.6'; changedTab()">
-              P3.6 mongoose.js
+              P3.6 MongoDB
               </button><br>
               <button mat-button (click)="myID ='P3.7'; changedTab()">
-              P3.7 (mongoose)-socket.io
+              P3.7 mongoose.js
               </button><br>
               <button mat-button (click)="myID ='P3.8'; changedTab()">
-              P3.8 moment.js
+              P3.8 (mongoose)-socket.io
               </button><br>
               <button mat-button (click)="myID ='P3.9'; changedTab()">
-              P3.9 fullcalendar.js
+              P3.9 moment.js
               </button><br>
               <button mat-button (click)="myID ='P3.10'; changedTab()">
-              P3.10 Angular CLI
+              P3.10 fullcalendar.js
               </button><br>
               <button mat-button (click)="myID ='P3.11'; changedTab()">
-              P3.11 Angular  Material
+              P3.11 Angular CLI
               </button><br>
               <button mat-button (click)="myID ='P3.12'; changedTab()">
-              P3.12 Handsontable CE
+              P3.12 Angular  Material
               </button><br>
               <button mat-button (click)="myID ='P3.13'; changedTab()">
-              P3.13 NativeScript
+              P3.13 Handsontable CE
               </button><br>
               <button mat-button (click)="myID ='P3.14'; changedTab()">
-              P3.14 Security Tips
+              P3.14 NativeScript
               </button><br>
               <button mat-button (click)="myID ='P3.15'; changedTab()">
-              P3.15 Blockchain
+              P3.15 PWA
               </button><br>
               <button mat-button (click)="myID ='P3.16'; changedTab()">
-              P3.16 Blockcerts
+              P3.16 Security Tips
               </button><br>
               <button mat-button (click)="myID ='P3.17'; changedTab()">
-              P3.17 Machine Learning
+              P3.17 Blockchain
               </button><br>
               <button mat-button (click)="myID ='P3.18'; changedTab()">
-              P3.18 Testing and Debugging
+              P3.18 Blockcerts
+              </button><br>
+              <button mat-button (click)="myID ='P3.19'; changedTab()">
+              P3.19 Machine Learning
+              </button><br>
+              <button mat-button (click)="myID ='P3.20'; changedTab()">
+              P3.20 Testing and Debugging
               </button><br>
               </mat-expansion-panel>
               <mat-expansion-panel [expanded]='false'>
@@ -463,7 +473,7 @@
               P6.6 mahara
               </button><br>
               <button mat-button (click)="myID ='P6.7'; changedTab()">
-              P6.7 gluu/UCS/WSO2
+              P6.7 DexIdp/Keycloak/gluu/UCS/WSO2
               </button><br>
               <button mat-button (click)="myID ='P6.8'; changedTab()">
               P6.8 OpenStack
@@ -478,7 +488,7 @@
               P6.11 NextCloud
               </button><br>
               <button mat-button (click)="myID ='P6.12'; changedTab()">
-              P6.12 OpenOffice
+              P6.12 Collabora Online
               </button><br>
               <button mat-button (click)="myID ='P6.13'; changedTab()">
               P6.13 Office 365
